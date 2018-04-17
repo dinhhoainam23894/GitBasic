@@ -25,7 +25,7 @@ Mặc dù tôi đã đề cập đến nó khá sớm , Tôi không thể nhấn
 
 ##2. Bỏ qua các tệp trong Git
 
-Bạn có mệt mỏi khi các tệp tin biên dịch (như ```.pyc```) xuất hiện trong kho Git của bạn ? hoặc bạn quá ngán khi bạn đã thêm chúng vào Git ? Đừng kiếm ở đâu xa cả , đây chính một cách qua đó bạn có thể nói với Git để chắc chắn sẽ bỏ qua các tệp và các thư mục hoàn toàn.Đơn giản tạo một tệp với tên ```.gitignore``` và liệt kê các tệp và thư mục mà bạn không muốn Git đánh dấu nó. Bạn có thẻ tạo các ngoại lệ sử dụng dấu cảm thán(!).
+Bạn có mệt mỏi khi các tệp tin biên dịch (như ```.pyc```) xuất hiện trong kho Git của bạn ? hoặc bạn quá ngán khi bạn đã thêm chúng vào Git ? Đừng kiếm ở đâu xa cả , đây chính là một cách qua đó bạn có thể nói với Git để chắc chắn sẽ bỏ qua các tệp và các thư mục hoàn toàn.Đơn giản tạo một tệp với tên ```.gitignore``` và liệt kê các tệp và thư mục mà bạn không muốn Git đánh dấu nó. Bạn có thẻ tạo các ngoại lệ sử dụng dấu cảm thán(!).
 ```
 *.pyc
 *.exe
@@ -45,29 +45,29 @@ git blame [file_name]
 
 ![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946443git-ninja-01.png)
 
-Và trong cái hình ảnh bên dưới , bạn có thể thấy làm thế nào để dòng lệnh có thể nhìn vào 1 kho lớn hơn:
+Và trong cái hình ảnh bên dưới , bạn có thể thấy làm thế nào để dòng lệnh có thể nhìn vào 1 repository lớn hơn:
 
 ![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946441git-ninja-02.png)
 
-##4. Đánh giá lịch sử của kho
+##4. Đánh giá lịch sử của repository
 
 Chúng ta đã xem xét việc sử dụng ```git log``` trong cái tutorial trước, tuy nhiên , có 3 lựa chọn mà bạn nên biết đến.
 
-* ```--oneline``` – Nén các thông tin hiển thị trong mỗi commit đến một commit được giảm bớt và thông báo commit, tất cả được hiển thị trong 1 dòng.
-* ```--graph``` – Lựa chọn này rút ra một biễu diễn đồ họa dựa trên văn bản của lịch sửa ở phía tay trái của đầu ra. Nó là vô ích nếu bạn đang xem lịch sử trên một nhánh.
+* ```--oneline``` – Nén các thông tin hiển thị trong mỗi commit để giảm bớt các mã hash của commit và thông báo của commit, tất cả được hiển thị trong 1 dòng.
+* ```--graph``` – Lựa chọn này vẽ ra một biễu diễn đồ họa dựa trên các ký tự để biểu diễn lịch sửa ở phía tay trái của đầu ra. Nó không được dùng nếu bạn đang xem lịch sử trên một nhánh.
 * ```--all``` – HIển thị lịch sử của mọi nhánh.
 
-Đây là một sự phối hợp của những tùy chọn giống như sau:
+Đây là kết quả việc hợp các tuỳ chọn ở trên, giống như sau:
 
 ![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946444git-ninja-03.png)
 
 ##5. Không bao giờ để mất theo dõi của một Commit
 
-Hãy nói rằng bạn committed 1 cái gì đó bạn không muốn và kết thúc bằng cách thực hiện lại 1 thiết lập khó khăn để trở lại trạng thái trước của bạn. Một lát sau, Bạn nhận ra một vài thông tin khác trong tiến trình và muốn lấy lại nó, hoặc ít nhất là xem nó. Đây là nơi ```git reflog``` có thể giúp.
+Hãy nói rằng bạn đã commit 1 cái gì đó bạn không muốn và kết thúc bằng cách thực hiện lại 1 thiết lập khó khăn để trở lại trạng thái trước của bạn. Một lát sau, Bạn nhận ra một vài thông tin khác trong tiến trình và muốn lấy lại nó, hoặc ít nhất là xem nó. Đây là nơi ```git reflog``` có thể giúp.
 
-Một ```git log``` đơn giản hiển thị cho bạn commit cuối cùng, nó là cha mẹ, nó là cha mẹ của cha mẹ, và vân vân. Tuy nhiên, ```git reflog``` là danh sách các commits đầu được chỉ ra. Nhớ rằng nó là cục bộ của hệ thống bạn; Nó không phải 1 phần trong kho của bạn và không bao gồm pushes và mergers.
+Một ```git log``` đơn giản hiển thị cho bạn commit cuối cùng, nó là cha mẹ, nó là cha mẹ của cha mẹ, và vân vân. Tuy nhiên, ```git reflog``` là danh sách các commit đầu được chỉ ra. Nhớ rằng nó là cục bộ của hệ thống bạn; Nó không phải 1 phần trong kho của bạn và không bao gồm các pushe và các merger.
 
-Nếu tôi chạy ```git log```, Tôi nhận được các commits đó là một phần của kho của tôi:
+Nếu tôi chạy ```git log```, Tôi nhận được các commit đó là một phần của repository của tôi:
 
 ![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946446git-ninja-04.png)
 
@@ -113,7 +113,7 @@ Như bạn có thể thấy, Chúng ta có thể thêm vào đầu và dòng th�
 
 ##7. Squash nhiều Commits
 
-Khi bạn gửi mã của mình để xem xét và tạo yêu cầu kéo (thường xảy ra trong các dự án mã nguồn mở), bạn có thể được yêu cầu thực hiện thay đổi mã của mình trước khi nó được chấp nhận. Bạn thực hiện thay đổi, chỉ để được yêu cầu thay đổi lại nó trong lần xem xét tiếp theo. Trước khi bạn biết nó, bạn có một vài cam kết thêm. Lý tưởng nhất là bạn có thể sử dụng lệnh ```rebase```.
+Khi bạn submit code của mình để xem xét và tạo pull request (thường xảy ra trong các dự án mã nguồn mở), bạn có thể được yêu cầu thực hiện thay đổi code của mình trước khi nó được chấp nhận. Bạn thực hiện thay đổi, chỉ để được yêu cầu thay đổi lại nó trong lần xem xét tiếp theo. Trước khi bạn biết nó, bạn có một vài cam kết thêm. Lý tưởng nhất là bạn có thể sử dụng lệnh ```rebase```.
 
 ```
 
@@ -129,7 +129,7 @@ git rebase -i HEAD~2
 
 ```
 
-Khi chạy lệnh này, bạn được đưa đến một giao diện tương tác liệt kê các cam kết và yêu cầu bạn những người nào để squash. Lý tưởng nhận, Bạn ```pick``` commit cuối và  ```squash``` cái cũ.
+Khi chạy lệnh này, bạn được đưa đến một giao diện tương tác liệt kê các commit  và yêu cầu bạn những người nào để squash. Lý tưởng nhận, Bạn ```pick``` commit cuối và ```squash``` cái cũ.
 
 ![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946455git-ninja-10.png)
 
@@ -137,9 +137,9 @@ Sau đó bạn sẽ yêu cầu cung cấp thông báo commit cho commit mới. q
 
 ![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946457git-ninja-11.png)
 
-##8. Bẻ gẫy thay đổi Uncommitted
+##8. Stash các thay đổi chưa được commit
 
-Giả sử bạn đang làm việc trên một lỗi nhất định hoặc một tính năng, và bạn đột nhiên được yêu cầu để chứng minh công việc của bạn. Công việc hiện tại của bạn chưa đủ để commit, và bạn không thể đưa ra một cuộc biểu tình ở giai đoạn này (mà không quay lại những thay đổi). Trong trường hợp như vậy, ```git stash``` đến để giải cứu. Stash cơ bản thực hiện tất cả các thay đổi của bạn và lưu trữ chúng để sử dụng thêm. Để giấu các thay đổi của bạn, bạn chỉ cần chạy lệnh sau
+Giả sử bạn đang làm việc trên một lỗi nhất định hoặc một tính năng, và bạn đột nhiên được yêu cầu để chứng minh công việc của bạn. Công việc hiện tại của bạn chưa đủ để commit, và bạn không thể đưa ra một sự thể hiện ở giai đoạn này (mà không quay lại những thay đổi). Trong trường hợp như vậy, ```git stash``` đến để giải cứu. Stash cơ bản thực hiện tất cả các thay đổi của bạn và lưu trữ chúng để sử dụng thêm. Để giấu các thay đổi của bạn, bạn chỉ cần chạy lệnh sau
 
 ```
 
@@ -147,7 +147,7 @@ git stash
 
 ```
 
-Để kiểm tra danh sách các stashes, bạn có thể chạy lệnh sau:
+Để kiểm tra danh sách các stash, bạn có thể chạy lệnh sau:
 
 ```
 
@@ -157,7 +157,7 @@ git stash list
 
 ![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946458git-ninja-12.png)
 
-Nếu bạn muốn un-stash và phục hồi các thay đổi uncommitted, bạn áp dụng stash sau:
+Nếu bạn muốn huỷ bỏ stash và phục hồi các thay đổi chưa được commit, bạn áp dụng stash sau:
 
 ```
 
@@ -165,7 +165,7 @@ git stash apply
 
 ```
 
-Trong ảnh chụp màn hình mới nhất, bạn có thể thấy mỗi stash có một định danh, một số duy nhất (mặc dù chúng ta chỉ có một stash trong trường hợp này). Trong trường hợp bạn muốn áp dụng chỉ stashes chọn lọc, bạn thêm các định danh cụ thể vào câu lệnh ```apply```:
+Trong ảnh chụp màn hình mới nhất, bạn có thể thấy mỗi stash có một định danh, một số duy nhất (mặc dù chúng ta chỉ có một stash trong trường hợp này). Trong trường hợp bạn muốn áp dụng chỉ các stash chọn lọc, bạn thêm các định danh cụ thể vào câu lệnh ```apply```:
 
 ```
 
@@ -178,7 +178,7 @@ git stash apply stash@{2}
 
 ##9. Kiểm tra các Commits bị mất
 
-Mặc dù ```reflog``` là một cách để kiểm tra các cam kết bị mất, nó không khả thi trong các kho lưu trữ lớn. Đó là khi câu lệnh ```fsck``` (kiểm tra tệp hệ thống) vào cuộc.
+Mặc dù ```reflog``` là một cách để kiểm tra các commit bị mất, nó không khả thi trong các kho lưu trữ lớn. Đó là khi câu lệnh ```fsck``` (kiểm tra tệp hệ thống) vào cuộc.
 
 ```
 
@@ -197,7 +197,7 @@ git fsck --lost-found
 
 Tôi đã lưu lệnh Git lịch sự nhất cho lần cuối cùng. Các lệnh ```cherry-pick``` là lệnh Git yêu thích của tôi, bởi vì nó có nghĩa đen cũng như tiện ích của nó!
 
-Trong các điều khoản đơn giản nhất, ```cherry-pick```là chọn một cam kết duy nhất từ ​​một chi nhánh khác và kết hợp nó với một chi nhánh hiện tại. Nếu bạn đang làm việc theo kiểu song song trên hai hoặc nhiều chi nhánh, bạn có thể nhận thấy một lỗi xảy ra ở tất cả các chi nhánh. Nếu bạn giải quyết nó trong một, bạn có thể cherry pick các cam kết vào các nhánh khác, mà không làm phiền với các tập tin  hoặc cam kết khác.
+Trong các điều khoản đơn giản nhất, ```cherry-pick```là chọn một commit duy nhất từ ​​một nhánh khác và kết hợp nó với một nhánh hiện tại. Nếu bạn đang làm việc theo kiểu song song trên hai hoặc nhiều nhánh, bạn có thể nhận thấy một lỗi xảy ra ở tất cả các nhánh. Nếu bạn giải quyết nó trong một, bạn có thể cherry pick các commit vào các nhánh khác, mà không làm phiền với các tập tin  hoặc commit khác.
 
 Hãy xem xét một kịch bản mà chúng ta có thể áp dụng. Tôi có hai nhánh và tôi muốn ```cherry-pick``` the commit ```b20fd14: Cleaned junk``` vào một cái khác.
 
